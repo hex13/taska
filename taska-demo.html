@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf8">
+</head>
+<body>
+    <button id="foo">foo</button>
+    <button id="bar">bar</button>
+    <script type="module">
+        import { run } from './runner.js';
+        import createDomDispatcher from './domDispatcher.js';
+        import  { sleep } from './sleep.js';
+        const dispatcher = createDomDispatcher();
+
+        (async () => {
+            let e;
+            while (true) {
+                alert("click foo");
+                e = await dispatcher.on([document.getElementById('foo'), 'click']);
+                alert("click");
+                e = await dispatcher.on('click');
+            }
+        })();
+    </script>
+</body>

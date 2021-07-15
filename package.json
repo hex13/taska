@@ -1,0 +1,15 @@
+{
+  "name": "taska",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "asynchronous flow with generators and promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "= <=>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
