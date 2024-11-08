@@ -29,5 +29,26 @@ describe('interpolation', () => {
 			assert.deepStrictEqual(from, {x: 3, y: 4, foo: 1});
 			assert.deepStrictEqual(to, {x: 5, y: 7, foo: 10});
 		});
+	});
+	describe('mixObjects(): arrays', () => {
+		let from, to;
+
+		beforeEach(() => {
+			from = [0, 10, 300];
+			to = [1, 20, 0];
+		});
+		it('t = 0', () => {
+			assert.deepStrictEqual(mixObjects(from, to, 0), [0, 10, 300]);
+		});
+		it('t = 0.5', () => {
+			assert.deepStrictEqual(mixObjects(from, to, 0.5), [0.5, 15, 150]);
+		});
+		it('t = 1', () => {
+			assert.deepStrictEqual(mixObjects(from, to, 1), [1, 20, 0]);
+		});
+		afterEach(() => {
+			assert.deepStrictEqual(from, [0, 10, 300]);
+			assert.deepStrictEqual(to, [1, 20, 0]);
+		});
 	})
 });
