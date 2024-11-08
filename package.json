@@ -1,0 +1,15 @@
+{
+  "name": "taska",
+  "type": "module",
+  "version": "0.2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Łukasz Lityński",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "mocha": "^10.8.2"
+  }
+}
