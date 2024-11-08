@@ -50,5 +50,46 @@ describe('interpolation', () => {
 			assert.deepStrictEqual(from, [0, 10, 300]);
 			assert.deepStrictEqual(to, [1, 20, 0]);
 		});
+	});
+
+	describe('mixObjects(): recursive', () => {
+		let from, to;
+
+		beforeEach(() => {
+			from = {
+				position: [0, 10, 300],
+				someFixedProp: {a: 1},
+			};
+			to = {
+				position: [1, 20, 0],
+			};
+		});
+		it('t = 0', () => {
+			assert.deepStrictEqual(mixObjects(from, to, 0), {
+				position: [0, 10, 300],
+				someFixedProp: {a: 1},
+			});
+		});
+		it('t = 0.5', () => {
+			assert.deepStrictEqual(mixObjects(from, to, 0.5), {
+				position: [0.5, 15, 150],
+				someFixedProp: {a: 1},
+			});
+		});
+		it('t = 1', () => {
+			assert.deepStrictEqual(mixObjects(from, to, 1), {
+				position: [1, 20, 0],
+				someFixedProp: {a: 1},
+			});
+		});
+		afterEach(() => {
+			assert.deepStrictEqual(from, {
+				position: [0, 10, 300],
+				someFixedProp: {a: 1},
+			});
+			assert.deepStrictEqual(to, {
+				position: [1, 20, 0],
+			});
+		});
 	})
 });
